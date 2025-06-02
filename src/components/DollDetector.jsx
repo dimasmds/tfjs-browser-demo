@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import CameraFeed from './CameraFeed';
 import PredictionDisplay from './PredictionDisplay';
-import { loadModel, processFrame } from '../utils/modelLoader';
+import { loadModel, processFrame } from '../utils/ml.js';
 import PropTypes from 'prop-types';
 
 import '../styles/DollDetector.css';
