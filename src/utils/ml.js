@@ -41,7 +41,6 @@ export async function processFrame(model, videoElement) {
     const predictionData = await predictions.data();
 
     // Process the prediction results
-    // This depends on your model's output format
     const results = await processPredictions(predictionData);
 
     // Clean up tensors to prevent memory leaks
