@@ -8,9 +8,10 @@ const Header = () => {
     const handleScroll = () => {
       if (window.scrollY > 10) {
         setScrolled(true);
-      } else {
-        setScrolled(false);
+        return;
       }
+
+      setScrolled(false);
     };
 
     window.addEventListener('scroll', handleScroll);

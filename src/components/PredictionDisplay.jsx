@@ -8,7 +8,10 @@ const PredictionDisplay = ({ predictions, isActive }) => {
   useEffect(() => {
     if (predictions.length > 0) {
       setAnimatedPredictions(predictions);
-    } else if (!isActive) {
+      return;
+    }
+
+    if (!isActive) {
       setAnimatedPredictions([]);
     }
   }, [predictions, isActive]);
