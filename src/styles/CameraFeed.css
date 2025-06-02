@@ -1,0 +1,109 @@
+.camera-container {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: var(--border-radius-md);
+  background-color: var(--card-background);
+  box-shadow: var(--shadow-md);
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 75%; /* 4:3 aspect ratio */
+  background-color: #1a1a1a;
+  overflow: hidden;
+  border-radius: var(--border-radius-sm);
+}
+
+.camera-feed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1); /* Mirror the camera */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.video-container.active .camera-feed {
+  opacity: 1;
+}
+
+.camera-controls {
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing-md);
+}
+
+.camera-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  background-color: #2e2e2e;
+}
+
+.camera-icon {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.camera-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.camera-error {
+  width: 100%;
+  padding: var(--spacing-md);
+  background-color: var(--error-color);
+  color: white;
+  text-align: center;
+  border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: var(--spacing-md);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .camera-container {
+    max-width: 100%;
+  }
+  
+  .video-container {
+    padding-bottom: 75%; /* Maintain aspect ratio on mobile */
+  }
+}
