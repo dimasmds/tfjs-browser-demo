@@ -2,7 +2,9 @@ import * as tf from '@tensorflow/tfjs';
 
 export async function loadModel() {
   try {
-    const model = await tf.loadLayersModel('/model/model.json');
+    // TODO load model
+    const model = null;
+
     console.log('Model loaded successfully');
     return model;
   } catch (error) {
@@ -12,7 +14,7 @@ export async function loadModel() {
 }
 
 async function processPredictions(predictions) {
-  const response = await fetch('/model/metadata.json');
+  const response = null; // TODO fetch metadata from server
   const { labels } = await response.json();
 
   return Array.from(predictions)
@@ -37,7 +39,7 @@ export async function processFrame(model, videoElement) {
     const normalized = resized.div(255).expandDims(0);
 
     // Make prediction
-    const predictions = await model.predict(normalized);
+    const predictions = []; // TODO make predictions
     const predictionData = await predictions.data();
 
     // Process the prediction results
